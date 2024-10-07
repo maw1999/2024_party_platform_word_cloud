@@ -21,7 +21,7 @@ with pdfplumber.open(filename) as pdf:
 		all_content += paragraphs
 		
 single_letters = ["A", "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "S"]
-odd_fragments_and_common_terms = ["RE", "ll", "PRESIDENT", "CONGRESS"] 
+odd_fragments_and_common_terms = ["RE", "ll", "PRESIDENT", "CONGRESS", "ADMINISTRATION"]
 past_and_present_candidates = ["BIDEN", "HARRIS", "TRUMP"]
 frequent_numbers = list()
 
@@ -34,7 +34,7 @@ stop_words = single_letters + odd_fragments_and_common_terms + past_and_present_
 # Republican: RgDy
 print("Word cloud color map: BuPu or RdGy?\n")
 color_map = input()
-wordcloud = WordCloud(min_font_size=7, stopwords=stop_words, background_color="white", mode="RGB", relative_scaling=0, collocations=False, colormap=color_map, random_state=42).generate(all_content)
+wordcloud = WordCloud(width=650, height=475, min_font_size=7, stopwords=stop_words, background_color="white", mode="RGB", relative_scaling=0, collocations=False, colormap=color_map, random_state=42).generate(all_content)
 
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
